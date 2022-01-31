@@ -2,7 +2,7 @@ import { storeData, retriveData } from "./localstorage.js";
 import { timeJumpDaysISO } from "../utils/utils.js";
 
 async function getCompetitions() {
-  await fetch("http://api.football-data.org/v2/competitions?plan=TIER_ONE", {
+  await fetch("https://api.football-data.org/v2/competitions?plan=TIER_ONE", {
     headers: {
       "X-Auth-Token": "2d6f43482c8e40bbbc5d67828eb5c2e2",
     },
@@ -28,7 +28,7 @@ async function getCompetitions() {
 
 async function getMatches(id) {
   await fetch(
-    `http://api.football-data.org/v2/competitions/${id}/matches?dateFrom=${timeJumpDaysISO(-2)}&dateTo=${timeJumpDaysISO(7)}`,
+    `https://api.football-data.org/v2/competitions/${id}/matches?dateFrom=${timeJumpDaysISO(-2)}&dateTo=${timeJumpDaysISO(7)}`,
     {
       headers: {
         "X-Auth-Token": "2d6f43482c8e40bbbc5d67828eb5c2e2",
