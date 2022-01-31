@@ -2,7 +2,7 @@
 > A mock website that shows the user football matches across different football leagues. It uses [football-data](https://www.football-data.org/)´s api. 
 
 ## Visit the site
-The website is currently deployed with Gitub pages on ...
+The website is currently deployed with Gitub pages on [https://martcl.github.io/football/](https://martcl.github.io/football/)
 
 ## How to run locally 
 1. Download/clone the repository
