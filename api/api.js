@@ -28,7 +28,9 @@ async function getCompetitions() {
 
 async function getMatches(id) {
   await fetch(
-    `https://api.football-data.org/v2/competitions/${id}/matches?dateFrom=${timeJumpDaysISO(-2)}&dateTo=${timeJumpDaysISO(7)}`,
+    `https://api.football-data.org/v2/competitions/${id}/matches?dateFrom=${timeJumpDaysISO(
+      -2
+    )}&dateTo=${timeJumpDaysISO(7)}`,
     {
       headers: {
         "X-Auth-Token": "2d6f43482c8e40bbbc5d67828eb5c2e2",
@@ -57,9 +59,17 @@ async function getMatches(id) {
 
 export const useCompetitions = () => {
   if (retriveData("competitions")) {
-    return retriveData("competitions").data;
+    let competitions = retriveData("competitions");
+    if (
+      new Date().toISOString().substring(0, 10) !==
+      competitions.lastFetch.substring(0, 10)
+    ) {
+      await getCompetitions();
+      return retriveData("competitions").data;
+    }
+      return rcompetitions.data;
   } else {
-    getCompetitions();
+    await getCompetitions();
     return retriveData("competitions").data;
   }
 };
