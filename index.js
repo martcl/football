@@ -12,7 +12,7 @@ var dateDisplay = document.getElementById("date-display")
 dateDisplay.innerText = `${timeJumpDays(-2).toDateString()} - ${timeJumpDays(7).toDateString()}`
 
 // using competitions data
-var competitions = useCompetitions();
+var competitions = await useCompetitions();
 
 competitions.map((competitionData, i) => {
   const competition = new Competition(

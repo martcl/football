@@ -57,7 +57,7 @@ async function getMatches(id) {
     .catch((error) => console.log(error));
 }
 
-export const useCompetitions = () => {
+export const useCompetitions = async () => {
   if (retriveData("competitions")) {
     let competitions = retriveData("competitions");
     if (
@@ -67,7 +67,7 @@ export const useCompetitions = () => {
       await getCompetitions();
       return retriveData("competitions").data;
     }
-      return rcompetitions.data;
+      return competitions.data;
   } else {
     await getCompetitions();
     return retriveData("competitions").data;
