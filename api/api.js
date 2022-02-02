@@ -19,7 +19,7 @@ async function getCompetitions() {
     )
     .then((data) =>
       storeData("competitions", {
-        lastFetch: new Date().toISOString(),
+        lastFetch: timeJumpDaysISO(0),
         data: data,
       })
     )
@@ -50,7 +50,7 @@ async function getMatches(id) {
     )
     .then((data) =>
       storeData(`matches-${id}`, {
-        lastFetch: new Date().toISOString(),
+        lastFetch: timeJumpDaysISO(0),
         data: data,
       })
     )
@@ -60,14 +60,11 @@ async function getMatches(id) {
 export const useCompetitions = async () => {
   if (retriveData("competitions")) {
     let competitions = retriveData("competitions");
-    if (
-      new Date().toISOString().substring(0, 10) !==
-      competitions.lastFetch.substring(0, 10)
-    ) {
+    if (timeJumpDaysISO(0) !== competitions.lastFetch.substring(0, 10)) {
       await getCompetitions();
       return retriveData("competitions").data;
     }
-      return competitions.data;
+    return competitions.data;
   } else {
     await getCompetitions();
     return retriveData("competitions").data;
@@ -77,10 +74,7 @@ export const useCompetitions = async () => {
 export const useMatches = async (id) => {
   if (retriveData(`matches-${id}`)) {
     let matches = retriveData(`matches-${id}`);
-    if (
-      new Date().toISOString().substring(0, 10) !==
-      matches.lastFetch.substring(0, 10)
-    ) {
+    if (timeJumpDaysISO(0) !== matches.lastFetch.substring(0, 10)) {
       await getMatches(id);
       return retriveData(`matches-${id}`).data;
     }

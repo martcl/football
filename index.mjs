@@ -1,15 +1,15 @@
 // prosject scripts
 import { Competition } from "./components/competitions.js";
 import { useCompetitions } from "./api/api.js";
-import { timeJumpDays } from "./utils/utils.js";
+import { Clock } from "./components/clock.js";
 
-// referencing html containers 
+// referencing html containers
 var navigation = document.getElementById("nav-tab");
 var content = document.getElementById("nav-tabContent");
-var dateDisplay = document.getElementById("date-display")
+var dateDisplay = document.getElementById("date-display");
 
 // what timeframe the website is searching
-dateDisplay.innerText = `${timeJumpDays(-2).toDateString()} - ${timeJumpDays(7).toDateString()}`
+dateDisplay.appendChild(new Clock(-2, 7).lable);
 
 // using competitions data
 var competitions = await useCompetitions();
@@ -23,9 +23,3 @@ competitions.map((competitionData, i) => {
   navigation.appendChild(competition.navigationElement);
   content.appendChild(competition.contentElement);
 });
-
-// enable tooltip
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
