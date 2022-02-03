@@ -1,4 +1,4 @@
-# Footabll Leagues 🏆
+# Football Leagues 🏆
 
 > A mock website that shows the user football matches across different football leagues. It uses [football-data](https://www.football-data.org/)´s api.
 
