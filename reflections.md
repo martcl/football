@@ -1,6 +1,6 @@
 ## Introduction
 
-This website was created to show my knowledge of basic webdevelopment. I decided not to use fanzy external JavaScript packages or frameworks even though I was very tempted to just use a basic `create-react-app`. The aplication spesification descriped a simple system and I didn't wanna over-engineer it.
+This website was created to show my knowledge of basic webdevelopment. I decided not to use fanzy external JavaScript packages or frameworks even though I was very tempted to just use a basic `create-react-app`. The aplication specification descriped a simple system and I didn't wanna over-engineer it.
 
 ## Improvement
 
@@ -16,6 +16,6 @@ The system is perfect and need no impovements! ... That's what i would say in a 
 
 ### Implementation
 
-1. **To many API requests!** As i mentioned briefly in "functionality" there are potentially alot of API requests. To cinda solve this issue I used localStorage and stored the date the data was fetched. BUT with alot of users there would be alot more API requests... To solve this I would have implemented static site generation with _Gatsby_ and _Netlify_. This solution would be mutch more scalible beacouse it would only require me to fetch the data once per day. (This would also resolve an issue with my private API-key beeing public)
+1. **To many API requests!** As i mentioned briefly in "functionality" there are potentially alot of API requests. To cinda solve this issue I used localStorage and stored the data the the date that was fetched. BUT with alot of users there would be alot more API requests... To solve this I would have implemented static site generation with _Gatsby_ and _Netlify_. This solution would be mutch more scalible beacouse it would only require me to fetch the data once per day netless how many users use the site . (This would also resolve an issue with my private API-key beeing public)
 
 2. localStorage (っ °Д °;)っ My implementation of the API data heavily relies on localStorage. This is not optimal for users who have disable this feature, but this is not a consern for most users.
